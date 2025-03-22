@@ -1,0 +1,601 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap");
+
+/* Define 8-bit font */
+@font-face {
+  font-family: "8-bitfont";
+  src: url("../fonts/8-bit Arcade In.ttf") format("truetype"),
+    url("../fonts/8-bit Arcade Out.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+ul,
+li {
+  list-style: none;
+  margin-left: 0;
+}
+ol,
+ul {
+  padding-left: 0;
+}
+
+$title-color: #fa5f26;
+
+$main-600: #3eade0;
+$main-500: #64ccfe;
+$main-400: #8bd9fe;
+$main-300: #b2e6ff;
+$main-200: #d8f2ff;
+$main-100: #ffffff;
+
+$second-500: #63c74d;
+$second-400: #82d271;
+$second-300: #a1dd94;
+$second-200: #c1e9b8;
+$second-100: #e0f4db;
+
+$accent-500: #041f2f;
+$accent-400: #364c59;
+$accent-300: #687982;
+$accent-200: #9ba5ac;
+$accent-100: #cdd2d5;
+
+/* Global body font */
+body {
+  font-family: "Press Start 2P", Arial, sans-serif;
+  background-color: black;
+  color: $main-200;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Override display headings to use 8-bit font */
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: "8-bitfont", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: 0;
+}
+
+.main-heading {
+  font-size: 28rem;
+  margin-top: -14rem;
+  margin-bottom: -6rem;
+  line-height: 30rem;
+  color: $main-500;
+  text-shadow: 11px 13px 0px $accent-400;
+}
+
+// <--START OF HOME SECTION -->
+.nav-8bit-hero {
+  z-index: 222;
+  padding: 3rem 6rem;
+  .score {
+    color: $second-500;
+  }
+}
+
+.nav-8bit {
+  padding: 3rem;
+
+  a {
+    cursor: pointer;
+  }
+}
+
+.contact-details,
+.contact-container {
+  .socials {
+    cursor: pointer;
+
+    .fb {
+      width: 41px;
+    }
+    img {
+      width: 49px;
+      &:hover {
+        scale: 1.2;
+      }
+    }
+  }
+}
+
+.hero-section {
+  height: 100vh;
+  padding-top: 7rem;
+
+  .menus {
+    height: 111px;
+  }
+
+  .start-button,
+  .load-button {
+    height: 100%;
+    font-size: 23px;
+    cursor: pointer;
+    position: relative;
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    i {
+      display: none;
+      position: absolute;
+      left: -1rem;
+    }
+
+    &:hover {
+      transform: scale(1.5);
+
+      i {
+        animation: blink2 1s infinite;
+        display: block;
+        color: $second-500;
+      }
+    }
+  }
+
+  .hero-headings {
+    .hero-subheading {
+      span {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        opacity: 0;
+        animation: pop-in 0.5s ease forwards;
+        animation-delay: 1s; /* Starts after .slide-top */
+        display: inline-block;
+      }
+    }
+
+    h2 {
+      animation: slide-top 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both,
+        fast-blink 0.2s step-end;
+      animation-delay: 0s, 3.5s;
+    }
+
+    p {
+      color: #f9a929;
+      border-right: none; /* Hide border initially */
+      white-space: nowrap; /* Prevent wrapping */
+      overflow: hidden; /* Hide overflowing text */
+      width: 0; /* Start with no visible text */
+      animation: typing 2s steps(20, end) forwards, blink 1s step-end infinite;
+      animation-delay: 2s; /* Starts after h1 animation */
+      text-align: end;
+    }
+  }
+
+  .trademark-name {
+    padding-top: 2rem;
+  }
+}
+// <--END OF HOME SECTION -->
+
+// <-- START GLOBAL CLASS THAT USED IN MULTIPLE COMPONENTS -->
+.custom-border {
+  border: 1px solid $main-500;
+  padding: 3rem 2rem 2rem 2rem;
+  border-radius: 8px;
+}
+.main-button,
+.second-button {
+  padding: 15px;
+  border-radius: 3px;
+}
+.main-button {
+  color: $accent-500;
+  background-color: $main-500;
+  border: none;
+  width: 50%;
+
+  &:hover {
+    background-color: $main-600;
+  }
+}
+.second-button {
+  background-color: transparent;
+  border: 1px solid $main-500;
+  width: 50%;
+  color: $main-300;
+
+  &:hover {
+    background-color: #d8f2ff5f;
+    border: 1px solid rgba(255, 255, 255, 0);
+  }
+}
+// <-- END GLOBAL CLASS THAT USED IN MULTIPLE COMPONENTS -->
+
+// <-- START OF ABOUT SECTION -->
+.info-container {
+  .info-content {
+    .profile-container {
+      .profile {
+        img {
+          height: 250px;
+        }
+      }
+
+      .profile-details {
+        display: grid;
+        grid-template-columns: auto 0.5fr auto;
+        gap: 3px;
+        align-items: center;
+        justify-items: center;
+
+        .mid {
+          text-align: center;
+        }
+        .val {
+          text-align: end;
+        }
+
+        .label {
+          color: $main-400;
+        }
+
+        .label span,
+        .mid span,
+        .val span {
+          display: block;
+        }
+      }
+    }
+
+    .info-body {
+      position: relative;
+      overflow: hidden;
+      .info-title span {
+        color: $second-500;
+      }
+
+      .information {
+        margin-top: 2rem;
+        padding-bottom: 4rem;
+
+        width: 100%;
+        // max-height: 300px;
+
+        p {
+          max-width: 100%;
+        }
+      }
+
+      .info-buttons {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.abilities-container {
+  margin-bottom: 3rem;
+  .abilities {
+    // width: 40%;
+    height: auto;
+    margin: 0 auto;
+
+    .passive ul {
+      max-height: 150px;
+    }
+
+    ul {
+      max-height: 300px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: $main-600 #f5f5f500;
+      margin-top: 2rem;
+      padding-right: 1rem;
+      margin-bottom: 3rem;
+
+      ::-webkit-scrollbar {
+        width: 12x;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: red;
+        border-radius: 10px;
+      }
+      li {
+        cursor: pointer;
+        &:hover,
+        &.active {
+          border: 1px solid $main-500;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  .skill-selected-detail {
+    // width: 60%;
+    position: relative;
+    overflow: hidden;
+    .head {
+      display: flex;
+      gap: 2rem;
+      .skill-logo-big {
+        img {
+          height: 300px;
+          width: 300px;
+          object-fit: contain;
+        }
+      }
+
+      .head-skill-content {
+        flex-grow: 1;
+        width: 100%;
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+
+        .skill-bar {
+          display: flex;
+          gap: 20px;
+
+          .bar {
+            width: 100%;
+            .progress-bar {
+              width: 100%;
+              height: 20px;
+              border: 1px solid $main-500;
+              position: relative;
+              overflow: hidden;
+              border-radius: 4px;
+              transition: width 0.5s ease-in-out;
+              overflow: hidden;
+              .progress-fill {
+                position: absolute;
+                width: 85%;
+                height: 100%;
+                transition: all 1.5s;
+                background-color: $second-500;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .skill-description {
+      p {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      margin-top: 2rem;
+      width: 100%;
+    }
+  }
+}
+
+/// start i used this for skill item and passive item
+.skill-item {
+  padding: 22px 10px;
+
+  .language {
+    span {
+      font-size: small;
+    }
+    .skill-logo {
+      img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.title {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  .pixel-box {
+    width: 10px;
+    height: 10px;
+    background-color: $title-color;
+    border-radius: 2px;
+  }
+  color: $main-600;
+}
+// end
+
+// <-- START OF ABOUT SECTION -->
+
+// <-- START OF PROJECT LIST SECTION -->
+.project-content {
+  .project-title {
+    h5 {
+      color: $main-500;
+    }
+    .difficulty {
+      span {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 3px;
+      }
+
+      .easy {
+        background-color: green;
+      }
+      .medium {
+        background-color: yellow;
+
+        color: black;
+      }
+      .hard {
+        background-color: red;
+      }
+    }
+  }
+  .project-image {
+    width: 100%;
+    height: 300px;
+    border: 1px solid white;
+  }
+  .dropdown-item {
+    cursor: pointer !important;
+  }
+}
+// <-- END OF PROJECT LIST SECTION -->
+
+// <-- START OF PROJECT DETAILS SECTION -->
+.project-details-container {
+  margin-bottom: 4rem;
+  .skills-required-container {
+    ul:active {
+      cursor: grabbing;
+    }
+    ul {
+      display: flex;
+      gap: 23px;
+      overflow-x: auto; /* Enables horizontal scrollbar */
+      overflow-y: hidden; /* Hides vertical scrollbar */
+      white-space: nowrap; /* Prevents wrapping of list items */
+      user-select: none; /* Prevents text selection during dragging */
+      scrollbar-width: thin;
+      scrollbar-color: $main-600 #f5f5f500;
+      cursor: grab;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+
+    .item-skill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between; /* Ensures consistent spacing */
+      height: 180px; /* Adjust based on your design */
+      .item-image {
+        img {
+          width: 120px;
+          height: 120px;
+        }
+
+        // border: 1px solid white;
+      }
+      .item-name {
+        margin-top: 1rem;
+        font-size: 12px;
+        min-height: 30px; /* Adjust to a fixed height for alignment */
+        max-width: 141px;
+        text-align: center; /* Center-align the text */
+        white-space: normal; /* Allow wrapping of text */
+        word-wrap: break-word; /* Break long words */
+        overflow-wrap: break-word; /* Ensures compatibility */
+      }
+    }
+    .objectives-container {
+      .objectives-description {
+        margin: 2rem 0;
+        height: 300px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: $main-600 #f5f5f500;
+      }
+    }
+  }
+
+  .selected-project-container {
+    position: relative;
+    .selected-project-image-big {
+      width: 100%;
+      height: 450px;
+      border: 1px solid white;
+    }
+    .selected-project-details {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 3px;
+      align-items: center;
+      text-transform: uppercase;
+      .mid {
+        text-align: center;
+      }
+      .val {
+        text-align: end;
+      }
+
+      .label span,
+      .mid span,
+      .val span {
+        display: block;
+      }
+    }
+    .second-button {
+      // position: absolute;
+      margin-top: 2rem;
+      bottom: 2rem;
+    }
+  }
+}
+// <-- END OF PROJECT DETAILS SECTION -->
+
+// <-- START OF CONTACT FORM SECTION -->
+.contact-container {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 3rem;
+  gap: 20px;
+  .me-image {
+    img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+
+    button {
+      margin-top: 1rem;
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+
+      background-color: transparent;
+      border: 1px solid $main-500;
+
+      ::placeholder {
+        color: $accent-200;
+      }
+    }
+  }
+}
+// <-- END OF CONTACT FORM SECTION -->
