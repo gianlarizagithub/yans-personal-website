@@ -1,0 +1,84 @@
+<div class="container">
+  <app-back-button></app-back-button>
+
+  <div class="container-fluid">
+    <div
+      class="project-header d-flex flex-column justify-content-center align-items-center"
+      style="gap: 20px"
+    >
+      <div class="title">PROJECT LIST</div>
+      <div class="projects-filter">
+        <div class="dropdown">
+          <button
+            class="btn btn-primary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ selectedDiff || "Select Difficulty" }}
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" (click)="onChangeDifficulty('')"
+                >All Projects</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="onChangeDifficulty('easy')"
+                >Easy</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="onChangeDifficulty('medium')"
+                >Medium</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="onChangeDifficulty('hard')"
+                >Hard</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-container mt-5">
+      <div class="row">
+        @for (item of filteredProjects; track $index) {
+        <div class="col-md-6 col-lg-4">
+          <div class="project-content">
+            <div class="project-image">
+              <img src="" alt="" />
+            </div>
+            <div class="project-title d-flex justify-content-between mt-4">
+              <h5 class="w-50">{{ item.title }}</h5>
+              <div class="difficulty">
+                <span
+                  [ngClass]="{
+                  'easy': item.difficulty === 'easy',
+                  'medium': item.difficulty === 'medium',
+                  'hard': item.difficulty === 'hard',
+
+                }"
+                  >{{ item.difficulty }}</span
+                >
+              </div>
+            </div>
+            <button class="main-button mt-4">
+              <a routerLink="/project-details" (click)="sendingProj(item)">
+                Explore!
+              </a>
+            </button>
+            <div class="project-information mt-4">
+              <p>
+                {{ item.shortInformation }}
+              </p>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
